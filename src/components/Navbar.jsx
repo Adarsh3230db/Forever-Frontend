@@ -11,19 +11,19 @@ const Navbar = () => {
         </Link>
         <ul className='hidden sm:flex gap-4 text-sm text-gray-700'>
             <NavLink to='/' className='flex flex-col items-center gap-1'>
-                <p>Home</p>
+                <p>HOME</p>
                 <hr className='w-2/4 h-[1.6px] border-none bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/collection' className='flex flex-col items-center gap-1'>
-                <p>Collection</p>
+                <p>COLLECTION</p>
                 <hr className='w-2/4 h-[1.6px] border-none bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='about' className='flex flex-col items-center gap-1'> 
-                <p>About</p>
+                <p>ABOUT</p>
                 <hr className='w-2/4 h-[1.6px] border-none bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/contact' className='flex flex-col items-center gap-1'>
-                <p>Contact</p>
+                <p>CONTACT</p>
                 <hr className='w-2/4 h-[1.6px] border-none bg-gray-700 hidden' />
             </NavLink>
         </ul>
