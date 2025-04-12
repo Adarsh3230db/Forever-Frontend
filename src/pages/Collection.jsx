@@ -6,12 +6,13 @@ import ProductItem from '../components/ProductItem'
 
 const Collection = () => {
 
-  const {products} = useContext(ShopContext)
+  const {products , search, showSearch} = useContext(ShopContext)
   const [showFilter,setShowFilter] = useState(false)
   const [filterProducts,setFilterProducts] = useState([])
   const [category,setCategory] = useState([])
   const [subCategory,setSubCategory] = useState([])
   const [sortType,setSortType] = useState('relevant')
+  
 
   const toggleCategory = (e) =>{
     if(category.includes(e.target.value)){
@@ -33,6 +34,10 @@ const Collection = () => {
 
   const applyFilter = () =>{
     let productsCopy = products.slice()
+
+    if(showSearch && search){
+      productsCopy = products.filter(item=>item.name.toLowerCase().includes(search.toLowerCase()))
+    }
 
     if (category.length > 0){
       productsCopy = productsCopy.filter(item => category.includes(item.category))
@@ -74,14 +79,14 @@ const Collection = () => {
 
   useEffect(()=>{
     applyFilter()
-  },[category,subCategory])
+  },[category,subCategory,search,showSearch])
 
   useEffect(()=>{
     sortProduct()
   },[sortType])
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-gray-200'>
        {/* Filter Options  */}
        <div className='min-w-60'> 
         <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS
